@@ -12,3 +12,34 @@ body {
 a {
     color: #0078ff;
 }
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -99;
+}
+
+.container {
+    height: 1px;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -159px;
+    margin-left: -184px;
+    width: 368px;
+    height: 318px;
+}
+
+.pol {
+    fill: #BBBBBB;
+    opacity: 0.5;
+    transition: 500ms;
+}
+
+.pol:hover {
+    fill: #000000;
+}
