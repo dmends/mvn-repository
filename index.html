@@ -17,12 +17,9 @@
         gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
     }
 
-
-
 </script>
 
 <script id="fs" type="x-shader/x-fragment">
-
     uniform sampler2D map;
     uniform vec3 fogColor;
     uniform float fogNear;
@@ -36,80 +33,18 @@
         gl_FragColor = mix( gl_FragColor, vec4( fogColor, gl_FragColor.w ), fogFactor );
     }
 
-
-
 </script>
-
-<!--
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg" x="-184px" y="-159px"
-     class="centered" viewBox="0 0.972 368 318"
-     enable-background="new 0 0.972 368 318">
-
-    <text transform="rotate(-60 78 52)" font-size="30" fill="black" text-anchor="middle" y="77" x="40">
-        Link
-    </text>
-    <text transform="rotate(60 301.172 84)" font-size="30" fill="black" text-anchor="middle" y="104" x="305">
-        Link
-    </text>
-    <text transform="rotate(-0.019 183 28)" font-size="30" fill="black" text-anchor="middle" y="39" x="183">
-        Home
-    </text>
-    <text transform="rotate(-60 310 180)" font-size="30" fill="black" text-anchor="middle" y="209" x="268">
-        Link
-    </text>
-    <text transform="rotate(60 66.172 220)" font-size="30" fill="black" text-anchor="middle" y="231" x="66">
-        Link
-    </text>
-    <text transform="rotate(-0.0197409 187.172 292)" font-size="30" fill="black" text-anchor="middle" y="306" x="186">
-        Link
-    </text>
-
-    <polygon id="menu-hex-center"
-             class="pol"
-             points="119.282,270.692 55.473,159.433 120.282,48.177 247.902,48.177 312.714,158.433 247.902,270.692 ">
-    </polygon>
-
-    <polygon id="menu-hex-top"
-             class="pol"
-             points="120.01,47.177 248.861,47.177 276.098,0 92.773,0 92.825,0.089 ">
-    </polygon>
-
-    <polygon id="menu-hex-top-left"
-             class="pol"
-             points="313.714,158.433 368.188,158.433 276.7,0.972 249.464,49.149 ">
-    </polygon>
-
-    <polygon id="menu-hex-bottom-left"
-             class="pol"
-             points="313.714,159.433 249.267,271.062 276.503,318.239 368.188,159.433 ">
-    </polygon>
-
-    <polygon id="menu-hex-bottom"
-             class="pol"
-             points="120.405,271.692 93.168,318.869 275.702,318.869 248.466,271.692 ">
-    </polygon>
-
-    <polygon id="menu-hex-top-right"
-             class="pol"
-             points="119.064,47.554 91.827,0.377 0,158.433 54.473,158.433 ">
-    </polygon>
-
-    <polygon id="menu-hex-bottom-right"
-             class="pol"
-             points="54.473,159.433 0.377,159.433 92.024,318.833 119.262,271.656 ">
-    </polygon>
-</svg>
-
-
-<div class="container">
-    <canvas id="canvas" width="10" height="1"></canvas>
-</div>
--->
 
 <audio id="playAudio" autoplay loop>
     <source src="audio/ambient-loop-piano.mp3" type="audio/mpeg">
     Your browser does not support the video tag.
 </audio>
+
+<div id="container" class="container">
+    <canvas id="canvas" width="951" height="948" style="width: 951px; height: 948px;">
+
+    </canvas>
+</div>
 
 <script type="text/javascript" src="js/script.js"></script>
 </body>
