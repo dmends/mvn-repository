@@ -6,7 +6,12 @@
     <link href="css/main.css" rel="stylesheet" type="text/css"/>
 </head>
 <body onload="musicPlay()">
-
+<script type="text/javascript" >
+    function musicPlay() {
+        document.getElementById('playAudio').play();
+        document.removeEventListener('click', musicPlay);
+    }
+</script>
 <script type="text/javascript" src="js/three.min.js"></script>
 <script type="text/javascript" src="js/Detector.js"></script>
 
