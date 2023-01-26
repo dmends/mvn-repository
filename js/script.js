@@ -91,3 +91,8 @@ function animate() {
     camera.position.z = -position + 8000;
     renderer.render(scene, camera);
 }
+
+function musicPlay() {
+    document.getElementById('playAudio').play();
+    document.removeEventListener('click', musicPlay);
+}
