@@ -5,13 +5,7 @@
     <meta charset="utf-8">
     <link href="css/main.css" rel="stylesheet" type="text/css"/>
 </head>
-<body onload="musicPlay()">
-<script type="text/javascript" >
-    function musicPlay() {
-        document.getElementById('playAudio').play();
-        document.removeEventListener('click', musicPlay);
-    }
-</script>
+<body>
 <script type="text/javascript" src="js/three.min.js"></script>
 <script type="text/javascript" src="js/Detector.js"></script>
 
@@ -53,5 +47,13 @@
 </div>
 
 <script type="text/javascript" src="js/script.js"></script>
+
+<script type="text/javascript" >
+    function musicPlay() {
+        document.getElementById('playAudio').play();
+        document.removeEventListener('click', musicPlay);
+    }
+    musicPlay();
+</script>
 </body>
 </html>
