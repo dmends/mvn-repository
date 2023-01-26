@@ -1,59 +1,58 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
-    <title>dmends.com.br</title>
-    <meta charset="utf-8">
-    <link href="css/main.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-<script type="text/javascript" src="js/three.min.js"></script>
-<script type="text/javascript" src="js/Detector.js"></script>
+    <head>
+        <title>dmends.com.br</title>
+        <meta charset="utf-8">
+        <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <script type="text/javascript" src="js/three.min.js"></script>
+        <script type="text/javascript" src="js/Detector.js"></script>
 
-<script id="vs" type="x-shader/x-vertex">
-    varying vec2 vUv;
-    void main() {
-        vUv = uv;
-        gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-    }
+        <script id="vs" type="x-shader/x-vertex">
+            varying vec2 vUv;
+            void main() {
+                vUv = uv;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+            }
+        </script>
 
-</script>
+        <script id="fs" type="x-shader/x-fragment">
+            uniform sampler2D map;
+            uniform vec3 fogColor;
+            uniform float fogNear;
+            uniform float fogFar;
+            varying vec2 vUv;
+            void main() {
+                float depth = gl_FragCoord.z / gl_FragCoord.w;
+                float fogFactor = smoothstep( fogNear, fogFar, depth );
+                gl_FragColor = texture2D( map, vUv );
+                gl_FragColor.w *= pow( gl_FragCoord.z, 20.0 );
+                gl_FragColor = mix( gl_FragColor, vec4( fogColor, gl_FragColor.w ), fogFactor );
+            }
 
-<script id="fs" type="x-shader/x-fragment">
-    uniform sampler2D map;
-    uniform vec3 fogColor;
-    uniform float fogNear;
-    uniform float fogFar;
-    varying vec2 vUv;
-    void main() {
-        float depth = gl_FragCoord.z / gl_FragCoord.w;
-        float fogFactor = smoothstep( fogNear, fogFar, depth );
-        gl_FragColor = texture2D( map, vUv );
-        gl_FragColor.w *= pow( gl_FragCoord.z, 20.0 );
-        gl_FragColor = mix( gl_FragColor, vec4( fogColor, gl_FragColor.w ), fogFactor );
-    }
+        </script>
 
-</script>
+        <audio id="playAudio" autoplay loop>
+            <source src="audio/ambient-loop-piano.mp3" type="audio/mp3">
+            Your browser does not support the video tag.
+        </audio>
+        <script type="text/javascript">
+            document.addEventListener('click', musicPlay);
+            document.click();
+            function musicPlay() {
+                document.getElementById('playAudio').muted = false;
+                document.getElementById("playAudio").play();
+                document.removeEventListener('click', musicPlay);
+            }
+        </script>
 
-<audio id="playAudio" autoplay loop>
-    <source src="audio/ambient-loop-piano.mp3" type="audio/mp3">
-    Your browser does not support the video tag.
-</audio>
+        <div id="container" class="container">
+            <canvas id="canvas" width="951" height="948" style="width: 951px; height: 948px;">
 
+            </canvas>
+        </div>
 
-<div id="container" class="container">
-    <canvas id="canvas" width="951" height="948" style="width: 951px; height: 948px;">
-
-    </canvas>
-</div>
-
-<script type="text/javascript" src="js/script.js"></script>
-
-<script type="text/javascript" >
-    function musicPlay() {
-        document.getElementById('playAudio').play();
-        document.removeEventListener('click', musicPlay);
-    }
-    musicPlay();
-</script>
-</body>
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
 </html>
