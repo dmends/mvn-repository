@@ -38,14 +38,14 @@
             Your browser does not support the video tag.
         </audio>
         <script type="text/javascript">
-            //document.addEventListener('click', musicPlay);
+            document.addEventListener('click', musicPlay);
             //document.click();
-            window.onload = musicPlay;
+            //window.onload = musicPlay;
             function musicPlay() {
                 //document.getElementById('playAudio').muted = false;
                 //document.getElementById("playAudio").play();
-                //document.removeEventListener('click', musicPlay);
-                document.querySelector("#playAudio").play()
+                document.removeEventListener('click', musicPlay);
+                //document.querySelector("#playAudio").play()
             }
         </script>
 
